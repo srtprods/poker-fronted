@@ -1,0 +1,206 @@
+/* styles.css */
+body {
+  overflow: scroll; /* Puede ser desplazable, oculto o visible */
+  font-family: Arial, sans-serif;
+  background-color: #2b2b2b;
+  color: white;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  margin: 20px 0;
+}
+
+#table {
+  position: relative;
+  width: 120vw; /* Mesa más ancha */
+  height: 60vw; /* Mesa más baja */
+  max-width: 1000px; /* Tamaño máximo */
+  max-height: 500px; /* Tamaño máximo */
+  background-color: #116611;
+  border: 2px solid #fff;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+
+.player {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#player-top {
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#player-left {
+  left: 5%;
+  top: 50%;
+  transform: translateY(-50%) rotate(90deg); /* Girar 90 grados */
+}
+
+#player-right {
+  right: 5%;
+  top: 50%;
+  transform: translateY(-50%) rotate(-90deg); /* Girar 90 grados */
+}
+
+#player-bottom {
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.card {
+  width: 50px;
+  height: 70px;
+  border-radius: 5px;
+  margin: 2px; /* Menos margen */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.card.face-up {
+  background-color: white;
+  color: black;
+  border: 1px solid #000;
+}
+
+.card.face-up.red {
+  color: red; /* Cartas de corazones y diamantes */
+}
+
+.card.face-down {
+  background-color: #444;
+  border: 1px solid #222;
+}
+
+#deck, #discard-pile {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#deck {
+  left: 32.5%;
+  transform: translateX(-50%) translateY(-50%);
+  background-color: #333; /* Color diferente para el mazo */
+  border-radius: 5px;
+}
+
+#discard-pile {
+  left: 24%;
+  transform: translateX(-50%) translateY(-50%);
+  background-color: #666; /* Color diferente para los descartes */
+  border-radius: 5px;
+}
+
+#deck .card, #discard-pile .card {
+  width: 50px;
+  height: 70px;
+}
+
+#revealed-cards {
+  position: absolute;
+  left: 40%; /* Posición a la derecha del mazo */
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  width: 350px; /* Espacio entre los huecos */
+}
+
+/* Estilo para los huecos donde se mostrarán las cartas reveladas */
+.revealed-slot {
+  width: 50px;
+  height: 70px;
+  border: 2px dashed #ffffff;
+  margin: 0 5px;
+}
+
+/* Otros estilos de las cartas, mazo y descartes como los tienes */
+
+
+/* Estilo para las cartas reveladas */
+.card.revealed {
+  background-color: white; /* Fondo blanco */
+  border: 2px solid #000; /* Borde negro */
+  color: black; /* Texto por defecto en negro */
+}
+
+/* Color rojo para corazones y diamantes */
+.card.revealed.red {
+  color: red; /* Cambiar a rojo para corazones y diamantes */
+}
+
+/* Color negro para tréboles y picas */
+.card.revealed.black {
+  color: black; /* Mantener negro para tréboles y picas */
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #116611;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #339933;
+}
+
+#money-info {
+  margin-top: 20px;
+  color: white;
+}
+
+#money-info p {
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+#play-button, #fold-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #116611;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#play-button:hover, #fold-button:hover {
+  background-color: #339933;
+}
+button:disabled {
+  opacity: 0.5; /* Reducir la opacidad para hacerlo más oscuro */
+  cursor: not-allowed; /* Cambiar el cursor para indicar que está deshabilitado */
+}
+
+#dev-fold-button-2, #dev-fold-button-3, #dev-fold-button-4 {
+  margin-top: 5px;
+  margin-left: 100px;
+  margin-right: 100px;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
