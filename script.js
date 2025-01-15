@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function() {
     let revealedCards = []; // Arreglo donde almacenaremos las cartas reveladas
     let revealedCount = 0;  // Contador para las cartas reveladas
 
-    const socket = io(); // Conectar con el servidor
+    const socket = io("https://poker-online-ivk.glitch.me"); // Conectar con el servidor
 
 // Recibir el ID del jugador
 socket.on("playerId", (playerId) => {
