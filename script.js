@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
     // Crear una baraja de póker
-    const socket = io("https://<poker-online-ivk>.glitch.me"); // URL del backend en Glitch
     const suits = ["♠", "♥", "♦", "♣"];
     const ranks = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
     let deck = [];
