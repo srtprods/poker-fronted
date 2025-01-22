@@ -25,17 +25,40 @@ document.addEventListener("DOMContentLoaded", function() {
     let revealedCards = []; // Arreglo donde almacenaremos las cartas reveladas
     let revealedCount = 0;  // Contador para las cartas reveladas
 
-    const socket = io("https://poker-online-ivk.glitch.me"); // Conectar con el servidor
+// Conexión al servidor
+const socket = io();
 
-// Recibir el ID del jugador
-socket.on("playerId", (playerId) => {
-    console.log(`Eres el jugador ${playerId}`);
+// Pantallas
+const startScreen = document.getElementById("start-screen");
+const gameScreen = document.getElementById("game-screen");
+
+// Crear o unirse a una sala
+document.getElementById("create-room").addEventListener("click", () => {
+    const roomName = document.getElementById("room-name").value.trim();
+    if (roomName) socket.emit("createRoom", roomName);
 });
 
-// Recibir el estado del juego
-socket.on("gameState", (gameState) => {
-    console.log("Estado del juego:", gameState);
-    // TODO: Renderizar el estado en el cliente
+document.getElementById("join-room").addEventListener("click", () => {
+    const roomName = document.getElementById("room-name").value.trim();
+    if (roomName) socket.emit("joinRoom", roomName);
+});
+
+// Manejar respuestas del servidor
+socket.on("roomCreated", (roomName) => {
+    startScreen.style.display = "none";
+    gameScreen.style.display = "block";
+    document.getElementById("room-name-display").textContent = roomName;
+});
+
+socket.on("roomJoined", ({ roomName, playerId }) => {
+    startScreen.style.display = "none";
+    gameScreen.style.display = "block";
+    document.getElementById("room-name-display").textContent = roomName;
+    document.getElementById("player-id-display").textContent = playerId;
+});
+
+socket.on("error", (message) => {
+    document.getElementById("error-message").textContent = message;
 });
 
 // Enviar acciones al servidor
